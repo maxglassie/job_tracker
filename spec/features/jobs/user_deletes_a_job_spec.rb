@@ -8,3 +8,4 @@ RSpec.feature "" do
     #and I am redirected to the index page
     #and I do not see that job
   end
+end

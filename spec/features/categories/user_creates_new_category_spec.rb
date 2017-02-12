@@ -10,10 +10,10 @@ RSpec.feature "User creates a new category" do
       #And I enter a title into the field
       fill_in "category[name]", with: "Finance"
       #And I hit the "Submit" button
-      click_on "Create"
-
+      click_button "Create"
+      
       #And I am taken to the category show page
-      expect(current_path).to eq(category_path(category))
+      expect(current_path).to eq("/categories/#{Category.last.id}")
       #And I see the category title
       expect(page).to have_content("Finance")
     end

@@ -9,3 +9,4 @@ RSpec.feature "" do
     #And I am redirected to the job show page
     #And I see the updated information
   end
+end

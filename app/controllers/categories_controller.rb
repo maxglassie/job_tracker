@@ -3,8 +3,12 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def index
+    @categories = Category.all
+  end
+
   def create
-    @category = Company.new(category_params)
+    @category = Category.new(category_params)
     if @category.save
       flash[:success] = "#{@category.name} added!"
       redirect_to category_path(@category)
