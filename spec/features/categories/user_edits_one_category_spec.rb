@@ -1,16 +1,17 @@
 require "rails_helper"
 
-RSpec.feature "" do
-  scenario "" do
-    #As a user, I visit a category show page
-    #And I see an edit button
-    #And I click on the "edit" button
-    #And I am redirected to the edit page
-    #And on that page I see a form with a name
-    #And I fill in that form with a new name
-    #And I click the "submit" button
-    #And I am redirected to this category's show page
-    #And I see the new title on that page
+RSpec.feature "User edits a category" do
+  scenario "user can edit an existing category" do
+    category = Category.create(name: "Wizardry")
+
+    visit edit_category_path(category)
+
+    fill_in "Name", with: "Magery"
+
+    click_on "Update"
+
+    expect(current_path).to eq("/categories/#{category.id}")
+
+    expect(page).to have_content("Magery")
   end
-    
 end

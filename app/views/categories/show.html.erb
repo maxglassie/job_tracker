@@ -1,1 +1,9 @@
-<h1>Category <%= category.name %></h1>
+<h1>Category <%= @category.name %></h1>
+
+<% @category.jobs.each do |job| %>
+ <li> Title: <%= job.title %></li>
+ <li> Description: <%= job.description %></li>
+ <li> Level of Interest: <%= job.level_of_interest %></li>
+ <li> City: <%= job.city %></li>
+ <li> Company: <%= job.company %></li><br>
+<% end %>

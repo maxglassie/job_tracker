@@ -17,9 +17,31 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
   def show
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+    if @category.save
+      flash[:success] = "Category #{@category.name} updated!"
+      redirect_to category_path(@category)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
     category = Category.find(params[:id])
-    redirect_to category_path(category)
+    category.destroy
+
+    flash[:success] = "#{category.name} was successfully deleted!"
+    redirect_to categories_path
   end
 
   private
