@@ -11,6 +11,7 @@ class JobsController < ApplicationController
 
   def create
     @company = Company.find(params[:company_id])
+    byebug
     @job = @company.jobs.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"

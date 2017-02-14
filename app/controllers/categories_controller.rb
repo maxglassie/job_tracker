@@ -26,6 +26,7 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    byebug
     @category = Category.find(params[:id])
     @category.update(category_params)
     if @category.save
